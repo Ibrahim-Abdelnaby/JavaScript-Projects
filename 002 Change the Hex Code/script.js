@@ -1,5 +1,6 @@
 "use strict";
-const changeColor = document.querySelector(".btn");
+const body = document.querySelector("body");
+const button = document.querySelector(".btn");
 const hexNumbers = [
   "0",
   "1",
@@ -19,19 +20,16 @@ const hexNumbers = [
   "F",
 ];
 
-changeColor.addEventListener("click", function () {
-  // let hexCode = "";
-  let hexCode = [""];
+button.addEventListener("click", function () {
+  let hexCode = "";
 
   for (let i = 0; i < 6; i++) {
-    let randomIndex = Math.trunc(Math.random() * hexNumbers.length);
-
-    // hexCode += hexNumbers[randomIndex];
-    hexCode[randomIndex];
+    let hexIndex = Math.trunc(Math.random() * hexNumbers.length);
+    hexCode += hexNumbers[hexIndex];
   }
 
-  const hexText = (document.querySelector(
-    "body"
-  ).style.backgroundColor = `#${hexCode}`);
-  changeColor.textContent = hexText;
+  body.style.backgroundColor = `#${hexCode}`;
+
+  // Turn Button To Hex Code Text
+  button.textContent = `#${hexCode}`;
 });
